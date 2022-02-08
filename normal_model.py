@@ -58,11 +58,11 @@ This class is an re-implementation of the `abcpy.continuousmodels.Normal` for do
         result = [np.array([x]) for x in vector_of_k_samples]
         return result
 
-    def pdf(self, input_values, x):
-        mu = input_values[0]
-        sigma = input_values[1]
-        pdf = np.norm(mu, sigma).pdf(x)
-        return pdf
+    # def pdf(self, input_values, x):
+    #     mu = input_values[0]
+    #     sigma = input_values[1]
+    #     pdf = np.norm(mu, sigma).pdf(x)
+    #     return pdf
 
 
 def infer_parameters(steps=3, n_sample=250, n_samples_per_param=10, logging_level=logging.WARN):
@@ -111,7 +111,7 @@ def infer_parameters(steps=3, n_sample=250, n_samples_per_param=10, logging_leve
         np.array([1]),
         np.array([2])]
     )
-    print(stats)
+    # print(stats)
     dataset1 = [np.array([0]),
         np.array([1]),
         np.array([2])]
@@ -120,9 +120,9 @@ def infer_parameters(steps=3, n_sample=250, n_samples_per_param=10, logging_leve
     from abcpy.distances import Euclidean
     distance_calculator = Euclidean(statistics_calculator)
     dists = distance_calculator.distance(dataset1, dataset2)
-    print(dists)
+    # print(dists)
 
-    exit(0)
+    # exit(0)
     # define distance
     from abcpy.distances import LogReg
     distance_calculator = LogReg(statistics_calculator, seed=42)

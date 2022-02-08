@@ -5,7 +5,7 @@
 
         python3 -m venv venv
         source venv/bin/activate
-        python -m pip --upgrade pip
+        python -m pip install --upgrade pip
         python -m pip install wheel numpy
         sudo apt-get install libopenmpi-dev
         python -m pip install abcpy matplotlib
