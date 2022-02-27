@@ -72,25 +72,31 @@ def generate_heston_paths(S_0, T, r, kappa, theta, v_0, rho, xi,
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
 
-    kappa = 3
-    theta = 0.04
-    v_0 = 0.04
-    xi = 0.6
+    np.random.seed(1)
+
+    kappa = 100
+    theta = 0.0001
+    v_0 = 0.0001
+    xi = 0.0001
     r = 0.05
     S = 100
     paths = 3
-    steps = 100
+    steps = 2000
     T = 1
-    rho = -0.8
+    rho = 0
     prices, sigs = generate_heston_paths(S, T, r, kappa, theta,
                                          v_0, rho, xi, steps, paths,
                                          return_vol=True)
 
     plt.figure(figsize=(7, 6))
+    # ax = plt.axes()
+    # ax.set_facecolor("#fffffa")
     plt.plot(prices.T)
     plt.title('Heston Price Paths Simulation')
     plt.xlabel('Time Steps')
     plt.ylabel('Stock Price')
+    plt.grid()
+    
     plt.show()
 
     plt.figure(figsize=(7, 6))
