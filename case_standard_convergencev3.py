@@ -48,6 +48,9 @@ def infer_parameters(backend, steps=100, n_sample=500,
     np.random.seed(43)
     graph_obs = heston_graph.forward_simulate([0.02, 3, 0.02, -0.9, 0.09], 1)
 
+    plt.plot(graph_obs[0])
+    plt.show()
+    exit(0)
 
     statistics_calculator = HestonStatistics()
 
@@ -99,6 +102,6 @@ def analyse_journal(journal):
 
 
 if __name__ == "__main__":
-    backend = setup_backend(True, process_per_model=4)
+    backend = setup_backend(False, process_per_model=4)
     journal = infer_parameters(backend, logging_level=logging.DEBUG)
     analyse_journal(journal)
